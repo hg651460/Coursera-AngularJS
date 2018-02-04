@@ -8,6 +8,18 @@
     <script src="app.js"></script>
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .error{
+        border: 2px solid red;
+      }
+      .enjoy{
+        border: 2px solid green;
+      }
+      .txterror{
+        color: red;
+      }
+      .txtenjoy{
+        color: green;
+      }
     </style>
   </head>
 
@@ -17,15 +29,16 @@
 
       <div ng-controller="LunchCheckController">
 
-         <div class="form-group" >
+         <div class="form-group {{message}}">
              <input id="lunch-menu" type="text" ng-model="menu"
-             placeholder="list comma separated dishes you usually have for lunch"
+             placeholder="list comma separated dishes you usually have for lunch (e.g. pizza, milkshake)"
              class="form-control">
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="numericLength();">Check If Too Much</button>
          </div>
-         <div class="form-group message">
+         <p> Empty space not considered.</p>
+         <div class="form-group message {{txtmessage}}">
             <!-- display test message-->
             {{menu}}
          </div>
