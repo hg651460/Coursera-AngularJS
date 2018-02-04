@@ -17,7 +17,7 @@ function LunchCheckController($scope) {
     var totalStringValue = string;
 
     if ($scope.menu.length < 1) {
-      return "Empty!";
+      return "Please enter data first!";
     } else if (totalStringValue < 4) {
       return "Enjoy!";
     } else {
