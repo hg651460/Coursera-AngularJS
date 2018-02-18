@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NarrowItDownApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Narrow Down Your Menu Choice</title>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/styles.css">
+
+</head>
+<body>
+  <div class="container">
+    <header class="row">
+        <h1>Narrow Down Your Menu Choice</h1>
+    </header>
+
+    <!-- *** Row with lists *********************************************** -->
+    <div ng-controller="NarrowItDownController as ctrl">
+
+          <div class="form-group">
+            <input type="text" id="searchFor" ng-model="ctrl.searchFor" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Enter item to search for" />
+          </div>
+          <div class="form-group narrow-button">
+            <button ng-click="ctrl.search()" class="btn btn-primary">Narrow It Down!</button>
+          </div>
+</br>
+</br>
+</br>
+          <h2 ng-if="ctrl.found.length > 0">Found menu items</h2>
+          <ul class="striped">
+            <li ng-repeat="item in ctrl.found">
+              <button class="btn btn-primary pull-right"
+                      ng-click="ctrl.dontWant($index);">Don't want this one!</button>
+              <b>[{{ item.short_name }}] {{ item.name }}</b><br />
+                Description: {{ item.description }}
+            </li>
+          </ul>
+          <p>{{ search.searchResult }}</p>
+        <found-items
+          title="Items found"
+          list="ctrl.found"
+          result="{{ ctrl.searchResult }}"
+          dont-want="ctrl.dontWant(index)"></found-items>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</body>
+</html>
