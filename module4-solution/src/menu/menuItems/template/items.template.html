@@ -1,0 +1,46 @@
+<a ui-sref="home">Home</a> &lt; <a ui-sref="categories">Categories</a> &lt; <span>Items</span>
+
+  <table class="table  table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">short Name</th>
+      <th scope="col">Special Instrctions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{items.category.name}}</td>
+      <td>{{items.category.short_name}}</td>
+      <td>{{items.category.special_instructions}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<h3> Menu Items </h3>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Short Name</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">price_small</th>
+      <th scope="col">price_large</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="itemDetail in items.menu_items">
+      <th scope="row">{{itemDetail.id}}</th>
+      <td>{{itemDetail.short_name}}</td>
+      <td>{{itemDetail.name}}</td>
+      <td>{{itemDetail.description}}</td>
+        <td>{{itemDetail.price_small}}</td>
+          <td>{{itemDetail.price_large}}</td>
+    </tr>
+
+  </tbody>
+</table>
