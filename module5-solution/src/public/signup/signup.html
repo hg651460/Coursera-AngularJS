@@ -1,0 +1,70 @@
+<div class="container" ng-controller="SignupController as reg">
+  <h2 id="menu-categories-title" class="text-center">Sign Up for News Letter</h2>
+
+  <fieldset>
+    <legend>Sign up</legend>
+    <form name="signupFrom" novalidate class="form-group">
+
+      <input type="text" name="firstName" placeholder="Pick a username" class="form-control"
+      ng-model="reg.user.firstName"
+      required>
+      <span
+      ng-if=" signupFrom.firstName.$error.required && signupFrom.firstName.$touched">
+      First Name is a required field
+    </span>
+    <br>
+
+    <input type="text" name="lastName" placeholder="Pick a username" class="form-control"
+    ng-model="reg.user.lastName"
+    required>
+    <span
+    ng-if=" signupFrom.lastName.$error.required && signupFrom.lastName.$touched">
+    Last Name is a required field
+  </span>
+  <br>
+
+  <input type="email" name="email" placeholder="Email" class="form-control"
+  ng-model="reg.user.email"
+  required>
+  <span ng-if="signupFrom.email.$invalid && signupFrom.email.$touched">
+    Must be a valid email address: handle@domain format
+  </span>
+  <br>
+
+  <input type="text" name="phone" placeholder="Phone ###-###-#### OR #########" class="form-control"
+  ng-model="reg.user.phone"
+  pattern="((\d{3})-(\d{3})-(\d{4}))|(\d{9})"
+  required>
+  <span ng-if="signupFrom.phone.$invalid && signupFrom.phone.$touched">
+    Phone must be in the format ###-###-####.
+  </span>
+  <br>
+
+  <input type="text" name="favorite" placeholder="favorite dish" class="form-control"
+  ng-model="reg.user.favorite"
+  required>
+  <span ng-if="signupFrom.favorite.$invalid && signupFrom.phone.$touched">
+    Please Enter your favorite dish.
+  </span>
+  <br>
+
+  <span ng-if="reg.isError" class="badge badge-warning">
+    No such menu number exists
+  </span>
+
+  <span ng-if="reg.isDataSaved" class="badge badge-success">
+    Your information has been saved
+  </span>
+
+
+  <br>
+  <br>
+  <button
+          ng-disabled="signupFrom.$invalid" class="btn btn-primary btn-lg btn-block"
+          ng-click="reg.submit(reg.user.favorite)">Submit</button>
+
+
+</form>
+</fieldset>
+
+</div>

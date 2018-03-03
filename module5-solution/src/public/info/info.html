@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="card">
+    <div class="card-block" ng-if="!infoCtrl.isNotRegistered">
+      <h4 class="card-title">Registered Information</h4>
+      <p class="card-text">First Name: {{infoCtrl.user.firstName}}</p>
+      <p class="card-text">Last Name: {{infoCtrl.user.lastName}}</p>
+      <p class="card-text">Email: {{infoCtrl.user.email}}</p>
+      <p class="card-text">Phone: {{infoCtrl.user.phone}}</p>
+      <p class="card-text">Favorite Item:</p>
+      <menu-item menu-item="infoCtrl.favorite"></menu-item>
+    </div>
+    <div class="card-block text-center" ng-if="infoCtrl.isNotRegistered">
+      <p class="card-text">Not Signed Up Yet. Sign up Now!</p>
+      <a ui-sref="public.signup" class="btn btn-primary">Sign up Now!</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div ng-if="!infoCtrl.isNotRegistered">
+First Name: {{infoCtrl.user}}
+<menu-item menu-item="infoCtrl.favorite"></menu-item>
+</div>
+
+<div ng-if="infoCtrl.isNotRegistered">
+Not Signed Up Yet. Sign up Now!
+<a ui-sref="public.signup" class="btn btn-primary">Sign up Now!</a>
+</div> -->
